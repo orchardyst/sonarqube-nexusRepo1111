@@ -36,7 +36,7 @@ pipeline {
         
         stage('deploy to tomcat') {
           steps {
-             deploy adapters: [tomcat9(credentialsId: 'tompass', path: '', url: 'http://54.236.23.41:8080/')], contextPath: 'myapp', war: '**/*.war'
+             nexusArtifactUploader credentialsId: 'Nexus', groupId: 'SampleWebApp', nexusUrl: 'ec2-184-72-131-154.compute-1.amazonaws.com:8081', nexusVersion: 'nexus3', protocol: 'http', repository: 'maven-snapshots', version: '1.0-snapshot'
               
               
               
